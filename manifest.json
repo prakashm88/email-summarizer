@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "AI Tools - Email summarizer",
+  "version": "1.0",
+  "description": "AI Tools to summarize emails and selected text on any webpage.",
+  "permissions": ["identity", "activeTab", "storage", "scripting", "contextMenus", "webRequest"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
